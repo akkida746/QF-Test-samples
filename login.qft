@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE RootStep>
+<RootStep id="_0" name="root"
+          signature="4D6D6CA04687A3201927940653E88A8297ACEBF0"
+          version="4.0.10">
+  <include>qfs.qft</include>
+  <TestSet id="_1" name="Register login">
+    <TestCase id="_Eu" name="Register login">
+      <Test id="_Ef" name="Start xstore">
+        <SetGlobalStep id="_Eg" varname="sql">
+          <default>C:\Users\Lenovo\Desktop\sql.jar</default>
+        </SetGlobalStep>
+        <SetGlobalStep id="_Eh" varname="client">
+          <default>xstore</default>
+        </SetGlobalStep>
+        <SUTClientStarter client="$(client)" directory="C:\xstore"
+                          executable="C:\xstore\xstore.bat" id="_Ei">
+          <extraarg/>
+          <extraarg>C:\Users\Lenovo\Desktop\sql.jar</extraarg>
+        </SUTClientStarter>
+        <ClientWaiter client="$(client)" id="_Ej" postdelay="5000"/>
+        <KeyEventStep client="$(client)"
+                      component="dialogPre-Flight_Checks_Failed"
+                      event="KEY_PTR" id="_Eo" keychar="27" keycode="27"
+                      modifiers="0" postdelay="4000"/>
+      </Test>
+      <Test id="_AR" name="Register Login">
+        <TextInputStep clear="true" client="$(client)"
+                       component="FOCUS_BAR.textRegister_Login" id="_AS"
+                       postdelay="1000">
+          <text>100</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)" component="dialogXstore"
+                      event="KEY_PTR" id="_AT" keychar="10" keycode="10"
+                      modifiers="0" postdelay="1000"/>
+        <TextInputStep clear="true" client="$(client)"
+                       component="FOCUS_BAR.textRegister_Login" id="_AU"
+                       postdelay="1000">
+          <text>1</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)" component="dialogXstore"
+                      event="KEY_PTR" id="_AV" keychar="10" keycode="10"
+                      modifiers="0" postdelay="1000"/>
+        <MouseEventStep clicks="1" client="$(client)" component="buttonOk2"
+                        event="MOUSE_MPRC" id="_AX" modifiers="16"
+                        postdelay="1000"/>
+        <KeyEventStep client="$(client)" component="dialogXstore"
+                      event="KEY_PTR" id="_Eq" keychar="10" keycode="10"
+                      modifiers="0" postdelay="1000"/>
+        <KeyEventStep client="$(client)" component="dialogXstore"
+                      event="KEY_PTR" id="_Er" keychar="65535" keycode="115"
+                      modifiers="0" postdelay="2000"/>
+      </Test>
+      <Test id="_3X" name="item search">
+        <comment>Search item in xstore</comment>
+        <TextInputStep clear="true" client="$(client)"
+                       component="FOCUS_BAR.textScan_Item_or_UPC" id="_20"
+                       postdelay="1000">
+          <text>1002</text>
+        </TextInputStep>
+        <KeyEventStep client="$(client)" component="dialogXstore"
+                      event="KEY_PTR" id="_21" keychar="10" keycode="10"
+                      modifiers="0" postdelay="1000"/>
+        <KeyEventStep client="$(client)"
+                      component="FOCUS_BAR.textScan_Item_or_UPC"
+                      event="KEY_PTR" id="_22" keychar="65535" keycode="524"
+                      modifiers="0" postdelay="2000"/>
+      </Test>
+      <Test id="_3Z" name="Add tender with Cash">
+        <comment>Add tender as cash in xstore</comment>
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="buttonAdd_Tenders" event="MOUSE_MPRC"
+                        id="_Es" modifiers="16" postdelay="1000"/>
+        <MouseEventStep clicks="1" client="$(client)" component="buttonOk3"
+                        event="MOUSE_MPRC" id="_Et" modifiers="16"
+                        postdelay="1000"/>
+        <MouseEventStep clicks="1" client="$(client)" component="buttonOk2"
+                        event="MOUSE_MPRC" id="_30" modifiers="16"
+                        postdelay="1000"/>
+        <MouseEventStep clicks="1" client="$(client)" component="buttonEnter"
+                        event="MOUSE_MPRC" id="_31" modifiers="16"
+                        postdelay="1000"/>
+        <MouseEventStep clicks="1" client="$(client)"
+                        component="buttonPrint_Only" event="MOUSE_MPRC"
+                        id="_32" modifiers="16" postdelay="1000"/>
+        <MouseEventStep clicks="1" client="$(client)" component="buttonOk2"
+                        event="MOUSE_MPRC" id="_33" modifiers="16"
+                        postdelay="1000"/>
+        <MouseEventStep clicks="1" client="$(client)" component="buttonSkip"
+                        event="MOUSE_MPRC" id="_34" modifiers="16"
+                        postdelay="1000"/>
+      </Test>
+    </TestCase>
+  </TestSet>
+  <PackageRoot id="_3"/>
+  <ExtraSequence id="_4">
+    <SetupSequence id="_2y"
+                   name="Start Java application via script or as executable">
+      <SetGlobalStep id="_2z" varname="client">
+        <default>xstore</default>
+      </SetGlobalStep>
+      <SUTClientStarter client="$(client)" directory="C:\xstore"
+                        executable="C:\xstore\xstore.bat" id="_2+"/>
+      <ClientWaiter client="$(client)" id="_2-"/>
+    </SetupSequence>
+  </ExtraSequence>
+  <WindowList id="_5">
+    <WindowStep class="Dialog" feature="Xstore" height="768" id="dialogXstore"
+                uid="_36" width="1366" x="0" y="0">
+      <extrafeature name="qfs:class" negate="false" regexp="false" state="0">dtv.pos.ui.component.PosWindow</extrafeature>
+      <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                    state="0">Dialog</extrafeature>
+      <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                    state="0">javax.swing.JDialog</extrafeature>
+      <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Window:Dialog</extrafeature>
+      <ComponentStep class="Panel" classcount="200" classindex="165"
+                     height="616" id="GENERAL_VIEW" name="GENERAL_VIEW"
+                     uid="_37" width="1366" x="0" y="0">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">dtv.pos.framework.ui.component.PosAnimatedCardedPanel</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">javax.swing.JPanel</extrafeature>
+        <ComponentStep class="Panel" classcount="32" classindex="0"
+                       height="616" id="TRANSACTION_VIEW"
+                       name="TRANSACTION_VIEW" uid="_38" width="1366" x="0"
+                       y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">dtv.pos.ui.component.PosTransparentPanel</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">javax.swing.JPanel</extrafeature>
+          <ComponentStep class="Panel" classcount="30" classindex="0"
+                         height="589" id="FOCUS_BAR_MESSAGE_AREA"
+                         name="FOCUS_BAR_MESSAGE_AREA" uid="_39" width="617"
+                         x="14" y="14">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">dtv.ui.swing.DtvPanelOptimizedFocusBarArea</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">Panel</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">javax.swing.JPanel</extrafeature>
+            <ComponentStep class="Panel" classcount="25" classindex="23"
+                           height="155" id="FOCUS_BAR" name="FOCUS_BAR"
+                           uid="_3A" width="616" x="1" y="433">
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">dtv.ui.swing.DtvPanel</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">Panel</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">javax.swing.JPanel</extrafeature>
+              <ComponentStep class="TextField" classcount="1" classindex="0"
+                             height="31" id="FOCUS_BAR.textRegister_Login"
+                             uid="_3B" width="431" x="16" y="54">
+                <extrafeature name="qfs:class" negate="false" regexp="false"
+                              state="0">dtv.pos.framework.ui.component.XstFocusBarTextField$$DefaultFocusBarTextField</extrafeature>
+                <extrafeature name="qfs:genericclass" negate="false"
+                              regexp="false" state="0">TextField</extrafeature>
+                <extrafeature name="qfs:label" negate="false" regexp="false"
+                              state="1">Register Login</extrafeature>
+                <extrafeature name="qfs:systemclass" negate="false"
+                              regexp="false" state="0">javax.swing.JFormattedTextField</extrafeature>
+              </ComponentStep>
+            </ComponentStep>
+          </ComponentStep>
+        </ComponentStep>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" feature="Pre-Flight Checks Failed" height="586"
+                id="dialogPre-Flight_Checks_Failed" modal="true" uid="_AZ"
+                width="770" x="298" y="91">
+      <extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JDialog</extrafeature>
+      <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                    state="0">Dialog</extrafeature>
+      <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                    state="0">javax.swing.JDialog</extrafeature>
+      <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Window:Dialog</extrafeature>
+      <ComponentStep class="Button" classcount="5" classindex="4"
+                     feature="Back" height="72" id="buttonBack" uid="_Aa"
+                     width="74" x="348" y="509">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">dtv.ui.swing.DtvButton</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Back</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">javax.swing.JButton</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+  </WindowList>
+</RootStep>

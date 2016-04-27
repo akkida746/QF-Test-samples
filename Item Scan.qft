@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE RootStep>
+<RootStep id="_0" name="root"
+          signature="8AACEC87DE570AE608BBA0C70D527A899DDD6332"
+          version="4.0.10">
+  <include>qfs.qft</include>
+  <TestSet id="_1" name="Item Scan">
+    <TestCase id="_2" name="Item Scan">
+      <TextInputStep clear="true" client="$(client)"
+                     component="FOCUS_BAR.textScan_Item_or_UPC" id="_20"
+                     postdelay="1000">
+        <text>1002</text>
+      </TextInputStep>
+      <KeyEventStep client="$(client)" component="dialogXstore"
+                    event="KEY_PTR" id="_21" keychar="10" keycode="10"
+                    modifiers="0" postdelay="1000"/>
+      <KeyEventStep client="$(client)"
+                    component="FOCUS_BAR.textScan_Item_or_UPC" event="KEY_PTR"
+                    id="_22" keychar="65535" keycode="524" modifiers="0"
+                    postdelay="1000"/>
+    </TestCase>
+  </TestSet>
+  <PackageRoot id="_3"/>
+  <ExtraSequence id="_4">
+    <SetupSequence id="_6"
+                   name="Start Java application via script or as executable">
+      <SetGlobalStep id="_7" varname="client">
+        <default>TestSequence</default>
+      </SetGlobalStep>
+      <SUTClientStarter client="$(client)" directory="C:\xstore"
+                        executable="C:\xstore\xstore.bat" id="_8"/>
+      <ClientWaiter client="$(client)" id="_9"/>
+    </SetupSequence>
+  </ExtraSequence>
+  <WindowList id="_5">
+    <WindowStep class="Dialog" feature="Xstore" height="768" id="dialogXstore"
+                uid="_A" width="1366" x="0" y="0">
+      <extrafeature name="qfs:class" negate="false" regexp="false" state="0">dtv.pos.ui.component.PosWindow</extrafeature>
+      <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                    state="0">Dialog</extrafeature>
+      <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                    state="0">javax.swing.JDialog</extrafeature>
+      <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Window:Dialog</extrafeature>
+      <ComponentStep class="Panel" classcount="340" classindex="174"
+                     height="616" id="GENERAL_VIEW" name="GENERAL_VIEW"
+                     uid="_B" width="1366" x="0" y="0">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">dtv.pos.framework.ui.component.PosAnimatedCardedPanel</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">javax.swing.JPanel</extrafeature>
+        <ComponentStep class="Panel" classcount="163" classindex="0"
+                       height="616" id="TRANSACTION_VIEW"
+                       name="TRANSACTION_VIEW" uid="_C" width="1366" x="0"
+                       y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">dtv.pos.ui.component.PosTransparentPanel</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">javax.swing.JPanel</extrafeature>
+          <ComponentStep class="Panel" classcount="47" classindex="0"
+                         height="589" id="FOCUS_BAR_MESSAGE_AREA"
+                         name="FOCUS_BAR_MESSAGE_AREA" uid="_D" width="617"
+                         x="14" y="14">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">dtv.ui.swing.DtvPanelOptimizedFocusBarArea</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">Panel</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">javax.swing.JPanel</extrafeature>
+            <ComponentStep class="Panel" classcount="25" classindex="23"
+                           height="155" id="FOCUS_BAR" name="FOCUS_BAR"
+                           uid="_E" width="616" x="1" y="433">
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">dtv.ui.swing.DtvPanel</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">Panel</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">javax.swing.JPanel</extrafeature>
+              <ComponentStep class="TextField" classcount="1" classindex="0"
+                             height="31" id="FOCUS_BAR.textRegister_Login"
+                             uid="_F" width="431" x="16" y="54">
+                <extrafeature name="qfs:class" negate="false" regexp="false"
+                              state="0">dtv.pos.framework.ui.component.XstFocusBarTextField$$DefaultFocusBarTextField</extrafeature>
+                <extrafeature name="qfs:genericclass" negate="false"
+                              regexp="false" state="0">TextField</extrafeature>
+                <extrafeature name="qfs:label" negate="false" regexp="false"
+                              state="1">Register Login</extrafeature>
+                <extrafeature name="qfs:systemclass" negate="false"
+                              regexp="false" state="0">javax.swing.JFormattedTextField</extrafeature>
+              </ComponentStep>
+              <ComponentStep class="TextField" classcount="1" classindex="0"
+                             height="31" id="FOCUS_BAR.textScan_Item_or_UPC"
+                             uid="_L" width="431" x="16" y="54">
+                <extrafeature name="qfs:class" negate="false" regexp="false"
+                              state="0">dtv.pos.framework.ui.component.XstFocusBarTextField$$DefaultFocusBarTextField</extrafeature>
+                <extrafeature name="qfs:genericclass" negate="false"
+                              regexp="false" state="0">TextField</extrafeature>
+                <extrafeature name="qfs:label" negate="false" regexp="false"
+                              state="1">Scan Item or UPC</extrafeature>
+                <extrafeature name="qfs:systemclass" negate="false"
+                              regexp="false" state="0">javax.swing.JFormattedTextField</extrafeature>
+              </ComponentStep>
+            </ComponentStep>
+          </ComponentStep>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="javax.swing.JComponent" classcount="941"
+                     classindex="236" height="700" id="POPUP_LAYER"
+                     name="POPUP_LAYER" uid="_G" width="1366" x="0" y="0">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">dtv.ui.swing.DtvTranslucentPane</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">javax.swing.JComponent</extrafeature>
+        <ComponentStep class="Panel" classcount="69" classindex="0"
+                       height="587" id="POPUP_VIEW_BACKGROUND"
+                       name="POPUP_VIEW_BACKGROUND" uid="_H" width="617"
+                       x="14" y="14">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">dtv.pos.ui.component.PosFormPanel</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">javax.swing.JPanel</extrafeature>
+          <ComponentStep class="Panel" classcount="46" classindex="0"
+                         height="587" id="POPUP_VIEW" name="POPUP_VIEW"
+                         uid="_I" width="617" x="0" y="0">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">dtv.pos.framework.ui.view.PopupView$$PopupPanel</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">Panel</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">javax.swing.JPanel</extrafeature>
+            <ComponentStep class="Button" classcount="20" classindex="19"
+                           feature="Ok" height="73" id="buttonOk" uid="_J"
+                           width="111" x="369" y="494">
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">dtv.ui.swing.DtvButton</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">Button</extrafeature>
+              <extrafeature name="qfs:label" negate="false" regexp="false"
+                            state="1">Ok</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">javax.swing.JButton</extrafeature>
+            </ComponentStep>
+            <ComponentStep class="Button" classcount="22" classindex="19"
+                           feature="Skip" height="73" id="buttonSkip" uid="_K"
+                           width="111" x="253" y="494">
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">dtv.ui.swing.DtvButton</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">Button</extrafeature>
+              <extrafeature name="qfs:label" negate="false" regexp="false"
+                            state="1">Skip</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">javax.swing.JButton</extrafeature>
+            </ComponentStep>
+          </ComponentStep>
+        </ComponentStep>
+      </ComponentStep>
+    </WindowStep>
+  </WindowList>
+</RootStep>
